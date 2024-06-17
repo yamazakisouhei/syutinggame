@@ -4,7 +4,7 @@ public class GameFrame extends MyFrame{
 	public void run() {
 		GameWorld.player=new Player(100,300,0,0);
 		addKeyListener(GameWorld.player);
-		GameWold.playerBullets=new Vector<PlayerBullet>();
+		GameWorld.playerBullets=new Vector<PlayerBullet>();
 		while (true) {
 			clear();
 			GameWorld.player.draw(this);
