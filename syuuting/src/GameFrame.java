@@ -1,4 +1,7 @@
 
-public class GameFrame {
+public class GameFrame extends MyFrame{
+	public void run() {
+		
+	}
 
 }
