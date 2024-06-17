@@ -14,12 +14,31 @@ public class GameFrame extends MyFrame{
 				PlayerBullet b=GameWorld.playerBullets.get(i);
 				b.draw(this);
 				b.move();
-				i++;
+				if (b.y<0) {
+					GameWorld.playerBullets.remove(i);
+				}else {
+					i++;
+				}
 			}
 			sleep(0.03);
 		}
 		
 		
+	}
+	public void movePlayerBullets() {
+		int i=0;
+		while (i<GameWorld.playerBullets.size()) {
+			PlayerBullet b=GameWorld.playerBullets.get(i);
+			b.draw(this);
+			b.move();
+			if (b.y<0) {
+				GameWorld.playerBullets.remove(i);
+				
+			}else {
+				i++;
+			}
+			
+		}
 	}
 
 }
