@@ -18,6 +18,10 @@ public class GameFrame extends MyFrame{
 			if (GameWorld.enemies.size()==0) {//★A敵が全滅した？
 				setColor(0,0,0);
 				drawString("クリア！",100,200,40);
+			}else if (GameWorld.player.y<0) {//★Bプレイヤーが消えた？
+				setColor(0,0,0);
+				drawString("ゲームオーバー！",50,200,40);
+				
 			}
 			sleep(0.03);
 			}
