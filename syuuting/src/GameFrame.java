@@ -4,9 +4,13 @@ public class GameFrame extends MyFrame{
 	public void run() {
 		GameWorld.player=new Player(100,300,0,0);
 		addKeyListener(GameWorld.player);
+		while(true) {
+			GameWorld.player.x=100;
+			GameWorld.player.y=300;
 		GameWorld.playerBullets=new Vector<PlayerBullet>();
 		GameWorld.enemies=new Vector<Enemy>();
 		GameWorld.enemies.add(new EnemyBase(100,50,1,0));
+		GameWorld.enterPressed=false;
 		while (true) {
 			clear();
 			GameWorld.player.draw(this);
@@ -18,13 +22,20 @@ public class GameFrame extends MyFrame{
 			if (GameWorld.enemies.size()==0) {//★A敵が全滅した？
 				setColor(0,0,0);
 				drawString("クリア！",100,200,40);
+				if (GameWorld.enterPressed) {//　★C　Enterキーが押された？
+					break; //★D
+				}
 			}else if (GameWorld.player.y<0) {//★Bプレイヤーが消えた？
 				setColor(0,0,0);
 				drawString("ゲームオーバー！",50,200,40);
-				
+				if (GameWorld.enterPressed) { //　★E　Enterキーが押された？
+					break; //★F
+				}
 			}
+			
 			sleep(0.03);
 			}
+		}
 			
 		}
 	public void moveEnemies () {
